@@ -1,0 +1,23 @@
+<mat-grid-list class="grid" cols="4" rowHeight="100px">
+  <mat-grid-tile [colspan]="4" [rowspan]="3">
+    <img src="{{ logo }}" height="300px" />
+  </mat-grid-tile>
+
+  <mat-grid-tile [colspan]="4" [rowspan]="1">
+    <div class="searchForm">
+      <app-autocomplete (filled)="onFilled($event)"></app-autocomplete>
+      <button
+        mat-raised-button
+        color="primary"
+        [disabled]="error"
+        (click)="search()"
+      >
+        Advanced search
+        <mat-icon *ngIf="displaySpinner">
+          <div class="save">
+            <mat-spinner diameter="20"></mat-spinner></div
+        ></mat-icon>
+      </button>
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>

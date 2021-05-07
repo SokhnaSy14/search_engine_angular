@@ -1,0 +1,22 @@
+<div>
+  <mat-expansion-panel *ngFor="let d of data; let i = index" [value]="d.name">
+    <mat-expansion-panel-header>
+      <mat-panel-title> CV-{{i}} </mat-panel-title>
+      <mat-panel-description> match at {{ d.score }}% </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <div>
+      <h4>Skills note</h4>
+      <p style="display: inline" *ngFor="let item of d.skills_note | keyvalue">
+        <span style="font-weight: bold">{{ item.key }}</span> : {{ item.value }}
+      </p>
+    </div>
+    <hr />
+    <div>
+      <h4>Experience (in year)</h4>
+      <p style="display: inline" *ngFor="let item of d.exp_note | keyvalue">
+        <span style="font-weight: bold">{{ item.key }}</span> : {{ item.value }}
+      </p>
+    </div>
+  </mat-expansion-panel>
+</div>

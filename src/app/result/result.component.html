@@ -1,0 +1,47 @@
+<mat-grid-list style="margin: 20px" class="grid" cols="5" rowHeight="100px">
+  <mat-grid-tile [colspan]="4">
+    <div style="width: 100%">
+      <app-autocomplete
+        style="float: left"
+        (filled)="onFilled($event)"
+      ></app-autocomplete>
+      <button
+        mat-raised-button
+        [disabled]="error"
+        color="primary"
+        (click)="search()"
+      >
+        Advanced Search
+        <mat-icon *ngIf="displaySpinner">
+          <div class="save">
+            <mat-spinner diameter="20"></mat-spinner></div
+        ></mat-icon>
+      </button>
+      <button
+        mat-raised-button
+        [disabled]="!hasData"
+        (click)="download()"
+        color="primary"
+      >
+        Download CV
+      </button>
+    </div>
+  </mat-grid-tile>
+
+  <mat-grid-tile [colspan]="3" [rowspan]="rowNumber">
+    <div class="result">
+      <mat-divider style="width: 100%"></mat-divider>
+      <app-list [data]="result"></app-list>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="2" [rowspan]="3">
+    <mat-card>
+      <h2>Ranking configuration</h2>
+      <app-slider
+        [skills]="weight.skill"
+        [experience]="weight.exp"
+        (slided)="onSlided($event)"
+      ></app-slider>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>

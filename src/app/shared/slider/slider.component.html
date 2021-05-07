@@ -1,0 +1,23 @@
+<div>
+  <h5>Skills/Exp weighting slider</h5>
+  <mat-slider
+    (change)="change()"
+    class="example-margin"
+    [max]="max"
+    [min]="min"
+    [step]="step"
+    [thumbLabel]="thumbLabel"
+    [(ngModel)]="skills"
+    [vertical]="vertical"
+  >
+  </mat-slider>
+</div>
+<mat-form-field class="example-margin">
+  <mat-label>Skills weight</mat-label>
+  <input matInput type="number" disabled [(ngModel)]="skills" />
+</mat-form-field>
+<br />
+<mat-form-field class="example-margin">
+  <mat-label>Experience weight</mat-label>
+  <input matInput type="number" disabled [(ngModel)]="experience" />
+</mat-form-field>

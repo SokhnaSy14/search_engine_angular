@@ -1,0 +1,29 @@
+<div class="profil_container">
+  <h1 mat-dialog-title>Select CVs</h1>
+  <div mat-dialog-content>
+    <mat-selection-list
+      #cv
+      [(ngModel)]="selectedCV"
+      (ngModelChange)="onGroupsChange($event)"
+    >
+      <mat-list-option *ngFor="let d of data; let i = index" [value]="d.name">
+        CV-{{i}}
+      </mat-list-option>
+    </mat-selection-list>
+
+    <p>Selected item: {{ cv.selectedOptions.selected.length }}</p>
+  </div>
+  <div mat-dialog-actions align="end">
+    <button mat-button (click)="close()">Abort</button>
+    <button mat-raised-button (click)="download()" color="primary">
+      Download
+      <mat-icon *ngIf="displaySpinner">
+        <div class="save">
+          <mat-spinner
+            mode="{{ spinnerMode }}"
+            diameter="20"
+          ></mat-spinner></div
+      ></mat-icon>
+    </button>
+  </div>
+</div>

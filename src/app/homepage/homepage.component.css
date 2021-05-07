@@ -1,0 +1,21 @@
+.grid {
+  margin-top: 5%;
+}
+.searchForm {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.field {
+  width: 100%;
+}
+
+button {
+  margin: 0 35% 0 35%;
+}
+
+.save ::ng-deep .mat-progress-spinner circle,
+.mat-spinner circle {
+  stroke: #ffffff;
+}

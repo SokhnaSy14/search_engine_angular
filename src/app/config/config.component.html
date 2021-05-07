@@ -1,0 +1,27 @@
+<div class="settings">
+  <div class="weight">
+    <mat-card>
+      <h2>Ranking configuration</h2>
+      <app-slider
+        [skills]="weight.skill"
+        [experience]="weight.exp"
+        (slided)="onSlided($event)"
+      ></app-slider>
+      <button
+        style="float: right"
+        mat-raised-button
+        color="primary"
+        (click)="updateWeight()"
+      >
+        Update Weight
+      </button>
+    </mat-card>
+  </div>
+  <br />
+  <div class="profil">
+    <mat-card>
+      <h2>Profil</h2>
+      <app-profil></app-profil
+    ></mat-card>
+  </div>
+</div>

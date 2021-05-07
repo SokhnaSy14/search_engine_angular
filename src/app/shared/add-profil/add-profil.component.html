@@ -1,0 +1,45 @@
+<div class="profil_container">
+  <h1 mat-dialog-title>{{ action }} Profil</h1>
+  <div mat-dialog-content>
+    <form [formGroup]="profilForm" class="profilForm">
+      <mat-form-field class="mat_form_field">
+        <mat-label>Profil Label</mat-label>
+        <input (blur)="checkInput()" formControlName="label" matInput />
+        <mat-error>
+          Label mustn't be empty or label length must be superior to 5
+        </mat-error>
+      </mat-form-field>
+      <br />
+      <mat-form-field class="mat_form_field">
+        <mat-label>Required Skills</mat-label>
+        <input (blur)="checkInput()" formControlName="required" matInput />
+        <mat-error>
+          Required field
+        </mat-error>
+      </mat-form-field>
+      <br />
+      <mat-form-field class="mat_form_field">
+        <mat-label>Optional Skills</mat-label>
+        <input formControlName="optional" matInput />
+      </mat-form-field>
+    </form>
+  </div>
+  <div mat-dialog-actions align="end">
+    <button mat-button (click)="close()">Abort</button>
+    <button
+      mat-raised-button
+      (click)="handleClick(profilForm.value)"
+      color="primary"
+      [disabled]="!error"
+    >
+      {{ action }}
+      <mat-icon *ngIf="displaySpinner">
+        <div class="save">
+          <mat-spinner
+            mode="{{ spinnerMode }}"
+            diameter="20"
+          ></mat-spinner></div
+      ></mat-icon>
+    </button>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<div class="navbar">
+  <mat-toolbar color="{{ color }}">
+    <button (click)="changeUrl('')" mat-button>
+      <img src="{{ logo }}" height="30px" />
+    </button>
+    <span class="example-spacer"></span>
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="changeUrl('/settings')">
+        <mat-icon>settings</mat-icon>
+        <span>Settings</span>
+      </button>
+      <button disabled mat-menu-item>
+        <mat-icon>history</mat-icon>
+        <span>History</span>
+      </button>
+    </mat-menu>
+  </mat-toolbar>
+</div>

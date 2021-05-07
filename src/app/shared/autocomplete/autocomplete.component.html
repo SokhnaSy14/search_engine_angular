@@ -1,0 +1,41 @@
+<form class="example-form">
+  <mat-form-field class="field">
+    <input
+      type="text"
+      placeholder="Seach Text"
+      aria-label="Number"
+      matInput
+      [formControl]="myControl"
+      [matAutocomplete]="auto"
+    />
+    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+      <mat-option
+        *ngFor="let option of filteredOptions | async"
+        [value]="option"
+      >
+        {{ option }}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>
+<!-- <form [formGroup]="searchForm">
+  <mat-form-field class="field">
+    <input
+      type="text"
+      matInput
+      [formControl]="searchForm.get('searchText')"
+      [matAutocomplete]="auto"
+    />
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option
+        *ngFor="let option of filteredOptions | async"
+        [value]="option"
+      >
+        {{ option }}
+      </mat-option>
+    </mat-autocomplete>
+    <mat-icon matSuffix>search</mat-icon>
+    <mat-error> Required field </mat-error>
+  </mat-form-field>
+</form>
+ -->
